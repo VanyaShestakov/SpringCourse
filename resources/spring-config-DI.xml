@@ -19,6 +19,13 @@
         <constructor-arg name="age" value="34"/>
     </bean>
 
+    <bean id="dog"
+          class="Lessons.IoC_and_DI.DI.Dog">
+        <property name="age" value="4"/>
+        <property name="color" value="black"/>
+        <property name="eyes" ref="eyes"/>
+    </bean>
+
 
 
 </beans>

@@ -8,5 +8,9 @@ public class Runner {
                 new ClassPathXmlApplicationContext("spring-config-DI.xml");
         Animal animal = context.getBean("cat", Animal.class);
         animal.say();
+        Animal dog = context.getBean("dog", Animal.class);
+        dog.say();
+
+        context.close();
     }
 }
