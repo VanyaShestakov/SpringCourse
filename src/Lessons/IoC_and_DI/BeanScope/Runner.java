@@ -20,6 +20,7 @@ public class Runner {
 
         System.out.println(prototypeObj.equals(otherPrototypeObj));
 
+
         context.close();
 
     }

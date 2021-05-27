@@ -9,5 +9,6 @@ public class Runner {
         Speakable teacher = context.getBean("teacher", Speakable.class);
         student.speak();
         teacher.speak();
+        context.close();
     }
 }
