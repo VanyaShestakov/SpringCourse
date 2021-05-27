@@ -8,5 +8,6 @@ public class Runner {
                 new ClassPathXmlApplicationContext("spring-config-AnnotationsConfiguration.xml");
         Human human = context.getBean("human", Human.class);
         System.out.println(human);
+        context.close();
     }
 }
