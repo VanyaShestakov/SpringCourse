@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class TestAspect {
 
-    @Before("execution(public void someMethod())")
+    @Before("execution(public void Lessons.AOP.BeforeAdvice.Test.someMethod())")
     public void beforeSomeMethodAdvice() {
         System.out.println("Before advice execution");
     }
