@@ -1,6 +1,7 @@
-package Lessons.AOP.AfterAdvices;
+package Lessons.AOP.AfterAroundAdvices;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import java.util.Arrays;
 @Aspect
 public class LoggingAspect {
 
-    @Pointcut("execution(public int Lessons.AOP.AfterAdvices.Divider.divide(int, int))")
+    @Pointcut("execution(public int Lessons.AOP.AfterAroundAdvices.Divider.divide(int, int))")
     private void publicIntDivideMethod() {};
 
     @Before("publicIntDivideMethod()")
@@ -32,7 +33,7 @@ public class LoggingAspect {
     }
 
     @AfterReturning(pointcut = "publicIntDivideMethod()", returning = "result")
-    private void afterReturningDivideAdvice(double result) {
+    private void afterReturningDivideAdvice(int result) {
         System.out.println("AFTER RETURNING:");
         System.out.println("---------------------------------------");
         System.out.println("Result: " + result );
@@ -45,6 +46,26 @@ public class LoggingAspect {
         System.out.println("---------------------------------------");
         System.out.println("Exception type: " + exception.toString() );
         System.out.println("---------------------------------------");
+    }
+
+    @Around("publicIntDivideMethod()")
+    private Object aroundDivideAdvice(ProceedingJoinPoint jp) throws Throwable {
+        Object[] params = jp.getArgs();
+
+        System.out.println("AROUND:");
+        System.out.println("---------------------------------------");
+        System.out.println("Input params:");
+        Arrays.stream(params).forEach(System.out::println);
+        System.out.println("---------------------------------------");
+
+        Object returned = jp.proceed();
+
+        System.out.println("AROUND:");
+        System.out.println("---------------------------------------");
+        System.out.println("Result: " + returned );
+        System.out.println("---------------------------------------");
+
+        return returned;
     }
 
 

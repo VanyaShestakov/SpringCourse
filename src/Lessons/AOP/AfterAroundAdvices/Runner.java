@@ -1,4 +1,4 @@
-package Lessons.AOP.AfterAdvices;
+package Lessons.AOP.AfterAroundAdvices;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -7,6 +7,6 @@ public class Runner {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(Config.class);
         Divider divider = context.getBean(Divider.class);
-        divider.divide(10, 0);
+        divider.divide(10, 2);
     }
 }

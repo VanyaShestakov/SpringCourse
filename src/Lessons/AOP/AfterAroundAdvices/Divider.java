@@ -1,4 +1,4 @@
-package Lessons.AOP.AfterAdvices;
+package Lessons.AOP.AfterAroundAdvices;
 
 import org.springframework.stereotype.Component;
 
