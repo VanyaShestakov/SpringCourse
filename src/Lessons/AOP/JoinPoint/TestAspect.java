@@ -4,6 +4,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -27,7 +28,7 @@ public class TestAspect {
         for (Class el: classes) {
             System.out.println(el.getName());
         }
-        
+
         System.out.println("test advice executing ...");
     }
 }
